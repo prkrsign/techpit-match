@@ -1,17 +1,45 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.signin-page-wrapper
+  .signin-page-wrapper__container
+    .signin-page-wrapper__container__user-icon
+      %i.fas.fa-user.fa-3x.signin-page-wrapper__container__user-
+    
+  .signin-page-wrapper__text
+    ログイン
+
+  = form_with(url: session_path(resource_name), class:'signin-page-wrapper__field') do |f|
+    .signin-page-wrapper__field__form-group
+      =f.label :email, 'Email'
+      =f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "emailを入力してください"
+
+    .signin-page-wrapper__field__form-group
+      =f.label :password, 'Password'
+      =f.password_field :email, autofocus: true, class: "form-control", autocomplete: 'off', placeholder: "パスワードを入力してください"
+
+    
+    .signin-page-wrapper__field__submit-box
+      =f.submit "ログインする", class: 'loginBtn'
+    
+    = render "devise/shared/links" 
+
+
+
+
+
+
+-# %h2 Log in
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"
