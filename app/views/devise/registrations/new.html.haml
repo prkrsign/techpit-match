@@ -1,21 +1,34 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.signup-page-wrapper
+  .signup-page-wrapper__container
+    .signup-page-wrapper__container__title
+      アカウントの作成
+    
+    =form_with(url: registration_path(resource_name), class: "signup-page-wrapper__container__contents") do |f|
+      =devise_error_messages!
+
+      .signup-page-wrapper__container__contents__image-container
+        %i.fas.fa-camera.signup-page-wrapper__container__contents__image-container__icon
+
+
+
+-# %h2 Sign up
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"
