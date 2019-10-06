@@ -1,21 +1,93 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.signup-page-wrapper
+  .signup-page-wrapper__container
+    .signup-page-wrapper__container__title
+      アカウントの作成
+    
+    =form_with(url: registration_path(resource_name), class: "signup-page-wrapper__container__contents") do |f|
+      =devise_error_messages!
+
+      %label.signup-page-wrapper__container__contents__image-container
+        %i.fas.fa-camera.signup-page-wrapper__container__contents__image-container__icon
+        = f.file_field :img_name, id: 'file_photo'
+
+      .signup-page-wrapper__container__contents__image-check#userImgPreview
+        = image_tag "", id:'thumbnail', class:'signup-page-wrapper__container__contents__image-check__thumbnail',accept: "image/*"
+        .signup-page-wrapper__container__contents__image-check__text
+          画像をアップロード済
+      
+      .signup-page-wrapper__container__contents__form-group
+        .signup-page-wrapper__container__contents__form-group__title
+          名前
+        = f.text_field :name, class: "signup-page-wrapper__container__contents__form-group__field", placeholder: "名前を入力してください"
+      
+      .signup-page-wrapper__container__contents__form-group
+        .signup-page-wrapper__container__contents__form-group__title
+          Eメールアドレス
+        = f.email_field :email, class: "signup-page-wrapper__container__contents__form-group__field", placeholder: "emailを入力してください", autocomplete: "email"
+      
+      .signup-page-wrapper__container__contents__form-group
+        .signup-page-wrapper__container__contents__form-group__title
+          = f.label :password, "パスワード"
+          - if @minimum_password_length 
+            %em
+              = "(#{@minimum_password_length}文字以上入力してください)"
+        = f.password_field :password, class: "signup-page-wrapper__container__contents__form-group__field", placeholder: "パスワードを入力してください", autocomplete: 'off'
+      
+      .signup-page-wrapper__container__contents__form-group
+        .signup-page-wrapper__container__contents__form-group__title
+          確認パスワード
+        = f.password_field :password_confirmation, class:"signup-page-wrapper__container__contents__form-group__field", placeholder: "パスワードを再度入力してください", autocomplete: "off" 
+
+      .signup-page-wrapper__container__contents__form-group
+        .signup-page-wrapper__container__contents__form-group__title
+          性別
+        .signup-page-wrapper__container__contents__form-group__check-box
+          = f.radio_button :sex, "男", class: "signup-page-wrapper__container__contents__form-group__check-box__input", id: "inlineRadio1"
+          = f.label :sex, "男"
+        
+        .signup-page-wrapper__container__contents__form-group__check-box
+          = f.radio_button :sex, "女", class: "signup-page-wrapper__container__contents__form-group__check-box__input", id: "inlineRadio2"
+          = f.label :sex, "女"
+      
+      .signup-page-wrapper__container__contents__form-group
+        .signup-page-wrapper__container__contents__form-group__title
+          自己紹介文
+        .signup-page-wrapper__container__contents__form-group__introduciton
+          = f.text_area :self_introduction, maxlength: "1000", rows: "10", class:"signup-page-wrapper__container__contents__form-group__introduciton__area"
+
+      %span.signup-page-wrapper__container__contents__submit-box
+        = f.submit "はじめる", class: "btn submitBtn signup-page-wrapper__container__contents__submit-box__btn"
+      
+      = render "devise/shared/links"
+
+
+      
+        
+        
+      
+      
+
+
+
+
+-# %h2 Sign up
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"
