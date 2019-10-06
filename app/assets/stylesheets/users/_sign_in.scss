@@ -1,0 +1,52 @@
+$main-color: #fd5068;
+$main-text-color: #fff;
+
+
+.signin-page-wrapper{
+    padding: 0 20px;
+    &__container{
+        width: 100%;
+        margin: 80px 0 30px;
+        &__user-icon{
+            height: 150px;
+            width: 150px;
+            margin: auto;
+            font-size: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 170px;
+            background-color: $main-color;
+            color: $main-text-color;
+        }
+    }
+    &__text{
+        color: $main-color;
+        font-size: 40px;
+        text-align: center;
+
+    }
+    &__field{
+        margin-top: 30px;
+        &__form-group{
+            margin-top: 30px;
+            font-size: 16px;
+        }
+        &__submit-box{
+            margin-top: 20px;
+            text-align: center;
+            .loginBtn{
+            padding: 12px;
+            width: 200px;
+            border-radius: 21px;
+            background: #fd5068;
+            color: #fff;
+            text-align: center;
+            border: none;
+            margin-top: 20px;
+            opacity: 1;
+            transition: opacity .5s;
+            cursor: pointer;
+            }
+        }
+    }
+}
