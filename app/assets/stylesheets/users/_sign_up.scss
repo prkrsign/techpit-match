@@ -11,7 +11,7 @@ $main-text-color: #fff;
         }
         &__contents{
             &__image-container {
-                margin: 50px 0 0 0 ;
+                margin: 50px 0 15px 0 ;
                 padding: 0 150px;
                 &__icon{
                     height: 100px;
@@ -27,6 +27,25 @@ $main-text-color: #fff;
             #file_photo{
                 display: none;
                 text-align: center;
+            }
+            &__image-check{
+                margin: 0 auto;
+                display: none;
+                text-align: center;
+                &__thumbnail{
+                    border: 1px solid lightgrey;
+                    height: 120px;
+                    width: 120px;
+                    border-radius: 20px;
+                    padding: 10px;
+                }
+                &__text{
+                    margin-top: 10px;
+                    font-size: 12px;
+                }
+                &.is-active {
+                    display: block;
+                  }
             }
         }
     }
