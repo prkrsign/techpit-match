@@ -55,7 +55,7 @@
         .signup-page-wrapper__container__contents__form-group__introduciton
           = f.text_area :self_introduction, maxlength: "1000", rows: "10", class:"signup-page-wrapper__container__contents__form-group__introduciton__area"
 
-      %span.signup-page-wrapper__container__contents__submit-box
+      .signup-page-wrapper__container__contents__submit-box
         = f.submit "はじめる", class: "btn submitBtn signup-page-wrapper__container__contents__submit-box__btn"
       
       = render "devise/shared/links"

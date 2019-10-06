@@ -12,8 +12,9 @@ $main-text-color: #fff;
         }
         &__contents{
             &__image-container {
-                margin: 50px 0 15px 0 ;
-                padding: 0 138px;
+                width: 100%;
+                text-align: center;
+                margin-top: 30px;
                 &__icon{
                     height: 100px;
                     width: 100px;
@@ -73,8 +74,9 @@ $main-text-color: #fff;
                 }
             }
             &__submit-box{
+                width: 100%;
                 margin-top: 15px;
-                padding: 0 80px;
+                text-align:  center;
                 &__btn{
                     background: $main-color;
                     color: $main-text-color;
