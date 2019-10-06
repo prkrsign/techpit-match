@@ -6,8 +6,17 @@
     =form_with(url: registration_path(resource_name), class: "signup-page-wrapper__container__contents") do |f|
       =devise_error_messages!
 
-      .signup-page-wrapper__container__contents__image-container
+      %label.signup-page-wrapper__container__contents__image-container
         %i.fas.fa-camera.signup-page-wrapper__container__contents__image-container__icon
+        = f.file_field :img_name, id: 'file_photo'
+
+      .signup-page-wrapper__container__contents__image-check
+        - image_tag "", id:'thumbnail', class:'signup-page-wrapper__container__contents__image-check__thumbnail',accept: "image/*"
+        .signup-page-wrapper__container__contents__image-check__text
+          画像をアップロード済
+        
+      
+      
 
 
 
