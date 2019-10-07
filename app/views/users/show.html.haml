@@ -10,3 +10,14 @@
   .user-showpage-wrapper__introduction
     = @user.self_introduction
   
+  - if current_user.id == @user.id
+    .user-showpage-wrapper__user-action
+      = link_to edit_user_registration_path, class: 'user-showpage-wrapper__user-action__icon' do
+        %i.fas.fa-edit.fa-2x.user-showpage-wrapper__user-action__icon__edit
+        .user-showpage-wrapper__user-action__icon__text
+          情報を編集
+    
+      = link_to destroy_user_session_path, class: 'user-showpage-wrapper__user-action__icon'   do
+        %i.fas.fa-cog.fa-2x.user-showpage-wrapper__user-action__icon__edit
+        .user-showpage-wrapper__user-action__icon__text
+          ログアウト
