@@ -2,7 +2,7 @@
   .user-editpage-wrapper__header
     アカウント編集
   .user-editpage-wrapper__container
-    = form_with model: current_user, url: edit_user_registration_path, method: :get do |f|
+    = form_with model: current_user, url: user_registration_path, local: true do |f|
       .user-editpage-wrapper__container__form-group
         = f.label '名前'
         = f.text_field :name, class: "form-control"
@@ -11,13 +11,13 @@
         = f.text_area :self_introduction, class: "form-control"
       .user-editpage-wrapper__container__form-group
         性別:
-        \#{f.label '男'}
-        \#{f.radio_button :sex, :男}
-        \#{f.label '女'}
-        \#{f.radio_button :sex, :女}
+        = f.label '男'
+        = f.radio_button :sex, :男
+        = f.label '女'
+        = f.radio_button :sex, :女
       .user-editpage-wrapper__container__form-group
         画像:
-        \#{f.file_field :img_name}
+        =f.file_field :img_name
       .user-editpage-wrapper__container__form-group
         = f.label '更新するにはパスワードを入力してください'
         = f.password_field :current_password, class: "form-control", autocomplete: "off"
