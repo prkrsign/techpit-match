@@ -17,7 +17,13 @@
         = f.radio_button :sex, :女
       .user-editpage-wrapper__container__form-group
         画像:
-        =f.file_field :img_name
+        =f.file_field :img_name, id: 'file_change'
+
+      .user-editpage-wrapper__container__image-check#changeImgPreview
+        = image_tag "", id:'thumbnail', class:'user-editpage-wrapper__container__image-check__thumbnail',accept: "image/*"
+        .user-editpage-wrapper__container__image-check__text
+          画像をアップロード済
+
       .user-editpage-wrapper__container__form-group
         = f.label '更新するにはパスワードを入力してください'
         = f.password_field :current_password, class: "form-control", autocomplete: "off"
