@@ -13,9 +13,9 @@ $main-text-color: #fff;
         padding: 20px;
         &__image-check{
             margin: 20px auto;
-            display: none;
             text-align: center;
             &__text{
+                display: none;
                 margin-top: 10px;
             }
             &__thumbnail{
@@ -47,4 +47,9 @@ $main-text-color: #fff;
             }
         }
     }
+}
+
+#file_change{
+    border: 1px solid lightgrey;
+    color: #007bff;
 }
