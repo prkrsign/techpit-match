@@ -6,14 +6,14 @@
   .signin-page-wrapper__text
     ログイン
 
-  = form_with(url: session_path(resource_name), class:'signin-page-wrapper__field') do |f|
+  = form_with model: @user, url: new_user_session_path, class:'signin-page-wrapper__field', local: true, method: :post do |f|
     .signin-page-wrapper__field__form-group
       =f.label :email, 'Email'
       =f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "emailを入力してください"
 
     .signin-page-wrapper__field__form-group
       =f.label :password, 'Password'
-      =f.password_field :email, autofocus: true, class: "form-control", autocomplete: 'off', placeholder: "パスワードを入力してください"
+      =f.password_field :password, autofocus: true, class: "form-control", autocomplete: 'off', placeholder: "パスワードを入力してください"
 
     
     .signin-page-wrapper__field__submit-box
