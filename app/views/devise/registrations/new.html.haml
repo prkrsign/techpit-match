@@ -3,8 +3,9 @@
     .signup-page-wrapper__container__title
       アカウントの作成
     
-    =form_with(url: registration_path(resource_name), class: "signup-page-wrapper__container__contents") do |f|
-      =devise_error_messages!
+    -# =form_with(url: registration_path(resource_name), class: "signup-page-wrapper__container__contents", method: :post) do |f|
+    =form_with model: @user, url: user_registration_path,id: 'new_user', class: "signup-page-wrapper__container__contents",local: true  do |f|
+      = render "devise/shared/error_messages"
 
       %label.signup-page-wrapper__container__contents__image-container
         %i.fas.fa-camera.signup-page-wrapper__container__contents__image-container__icon

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_074651) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", limit: 100, default: "", null: false
-    t.string "self_introduciton", limit: 500
+    t.string "self_introduction", limit: 500
     t.integer "sex", default: 0, null: false
     t.string "img_name"
     t.index ["email"], name: "index_users_on_email", unique: true
