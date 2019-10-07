@@ -1,0 +1,23 @@
+.user-showpage-wrapper
+  .user-showpage-wrapper__header
+    = link_to users_path, class: 'user-showpage-wrapper__header__icon' do
+      = image_tag '/techpit-march-icon.png', class: 'user-showpage-wrapper__header__icon__image'
+
+  .user-showpage-wrapper__info
+    = image_tag @user.img_name.url(:thumb), class:'user-showpage-wrapper__info__image',size: '170x170'
+  .user-showpage-wrapper__name
+    = @user.name
+  .user-showpage-wrapper__introduction
+    = @user.self_introduction
+  
+  - if current_user.id == @user.id
+    .user-showpage-wrapper__user-action
+      = link_to edit_user_registration_path, class: 'user-showpage-wrapper__user-action__icon' do
+        %i.fas.fa-edit.fa-2x.user-showpage-wrapper__user-action__icon__edit
+        .user-showpage-wrapper__user-action__icon__text
+          情報を編集
+    
+      = link_to destroy_user_session_path, class: 'user-showpage-wrapper__user-action__icon', method: :delete  do
+        %i.fas.fa-cog.fa-2x.user-showpage-wrapper__user-action__icon__edit
+        .user-showpage-wrapper__user-action__icon__text
+          ログアウト
