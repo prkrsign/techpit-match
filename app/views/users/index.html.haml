@@ -26,31 +26,10 @@
       %i.fas.fa-times.fa-2x
     = link_to '#', class: 'like' do
       %i.fas.fa-heart.fa-2x
-
-
-
--#   <div id="tinderslide">
--#     <ul>
--#       <% @users.each do |user| %>
--#         <li data-user_id="<%= user.id %>">
--#           <div class="userName"><%= user.name %></div>
--#           <%= image_tag user.img_name.url(:thumb) %>
--#           <div class="like"></div>
--#           <div class="dislike"></div>
--#         </li>
--#       <% end %>
--#     </ul>
--#     <div class="noUser">近くにお相手がいません。</div>
--#   </div>
--#   <div class="actions" id="actionBtnArea">
--#       <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
--#       <a href="#" class="like"><i class="fas fa-heart fa-2x"></i></a>
--#   </div>
--# </div>
--# <script>
--#   $("#tinderslide").jTinder();
--#   $('.actions .like, .actions .dislike').click(function(e){
--#   	e.preventDefault();
--#   	$("#tinderslide").jTinder($(this).attr('class'));
--#   });
--# </script>
+    
+  :javascript
+    $("#tinderslide").jTinder();
+      $('.actions .like, .actions .dislike').click(function(e){
+      e.preventDefault();
+      $("#tinderslide").jTinder($(this).attr('class'));
+    });
