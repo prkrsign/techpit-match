@@ -2,5 +2,10 @@
   .top-page-wrapper__container
     .top-page-wrapper__container__title
       新しいマッチを見つけよう
+    
+    .top-page-wrapper__container__member
+      - @users.each do |user|
+        = user.name
+
     =link_to new_user_session_path, class:'top-page-wrapper__container__link btn' do
-      メールアドレスでログインする
+      メールアドレスでログインすs
