@@ -18,8 +18,8 @@
           .like
           .dislike
     
-    #noUser
-      近く人お相手がいません。
+    .noUser
+      近くにお相手がいません。
   
   .actions#actionBtnArea
     = link_to '#', class: 'dislike' do
@@ -27,11 +27,13 @@
     = link_to '#', class: 'like' do
       %i.fas.fa-heart.fa-2x
     
-  :javascript
 
+
+  :javascript
       var usersNum = #{@users.length};
       var currentUserIndex = 0;
       var postReaction = function (user_id, reaction) {
+        console.log(currentUserIndex)
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -39,7 +41,7 @@
         });
         $.ajax({
           type: "POST",
-          url: "reactions_path",
+          url: "/reactions",
           data: {
             user_id: user_id,
             reaction: reaction,
@@ -49,19 +51,24 @@
           }
         });
       }
+      
+
       $("#tinderslide").jTinder({
         onDislike: function (item) {
           currentUserIndex++;
           checkUserNum();
-          var user_id = item[0].dataset.user_id
+          var user_id = item[0].dataset.userId
+          console.log(user_id)
           postReaction(user_id, 'dislike')
         },
+
         onLike: function (item) {
           currentUserIndex++;
           checkUserNum();
-          var user_id = item[0].dataset.user_id
+          var user_id = item[0].dataset.userId
           postReaction(user_id, 'like')
         },
+        
         animationRevertSpeed: 200,
         animationSpeed: 400,
         threshold: 1,
@@ -82,9 +89,3 @@
           return;
         }
       }
-
-        $("#tinderslide").jTinder();
-          $('.actions .like, .actions .dislike').click(function(e){
-          e.preventDefault();
-          $("#tinderslide").jTinder($(this).attr('class'));
-        });
